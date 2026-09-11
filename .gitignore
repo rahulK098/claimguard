@@ -1,6 +1,9 @@
 # Local tooling (claude-flow scaffolding) — not part of the project
 .claude/
 
+# Docs kept local only, not committed
+docs/
+
 # Secrets
 .env
 *.pem
