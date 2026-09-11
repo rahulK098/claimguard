@@ -1,0 +1,37 @@
+{
+  "claim_id": "CLM-017",
+  "category": "discrepancy",
+  "policy": {
+    "policy_number": "POL-1017",
+    "holder_name": "Marcus Johnson",
+    "coverage_limit_usd": 45000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2017",
+    "name": "Marcus Johnson"
+  },
+  "prior_claims": [],
+  "documents": [
+    {
+      "doc_id": "CLM-017-D1",
+      "doc_type": "incident_description",
+      "text": "Vehicle caught fire in the driveway on 2026-02-09, cause under investigation by the fire marshal; vehicle declared a total loss."
+    },
+    {
+      "doc_id": "CLM-017-D2",
+      "doc_type": "repair_estimate",
+      "text": "Total loss. ACV assessment: $52,000."
+    }
+  ],
+  "reported_damage_usd": 52000.0,
+  "ground_truth": {
+    "expected_outcome": "needs_info",
+    "expected_send_backs_min": 1,
+    "expected_terminal_reason": null,
+    "notes": "Reported damage ($52,000) exceeds the policy's coverage limit ($45,000) \u2014 payout would be capped regardless of the ACV figure."
+  }
+}

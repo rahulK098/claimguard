@@ -1,0 +1,37 @@
+{
+  "claim_id": "CLM-022",
+  "category": "stress",
+  "policy": {
+    "policy_number": "POL-1022",
+    "holder_name": "Yuki Tanaka",
+    "coverage_limit_usd": 35000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2022",
+    "name": "Yuki Tanaka"
+  },
+  "prior_claims": [],
+  "documents": [
+    {
+      "doc_id": "CLM-022-D1",
+      "doc_type": "adjuster_notes",
+      "text": "Claimant's written statement describes a 'moderate fender-bender, nothing too serious' while the attached police report classifies the same incident as a 'major collision with airbag deployment and possible frame damage.' The tow record lists the vehicle as driven away from the scene under its own power, which is inconsistent with the police report's frame-damage note. A supplemental adjuster memo requests re-classification pending a second inspection, but does not state what the re-classification should be, only that the current category 'may not be correct pending further review of attached materials which are not included in this packet.'"
+    },
+    {
+      "doc_id": "CLM-022-D2",
+      "doc_type": "repair_estimate",
+      "text": "No itemized estimate provided in this submission \u2014 the shop invoice references 'see prior estimate on file' without including one, and a placeholder total of $19,000 appears in the claimant's cover letter only, not on any shop letterhead."
+    }
+  ],
+  "reported_damage_usd": 19000.0,
+  "ground_truth": {
+    "expected_outcome": "needs_manual_review",
+    "expected_send_backs_min": 2,
+    "expected_terminal_reason": "loop_guard",
+    "notes": "Deliberately ambiguous/contradictory documents designed to stress the loop guard and step/budget ceilings rather than resolve cleanly."
+  }
+}

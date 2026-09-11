@@ -1,0 +1,37 @@
+{
+  "claim_id": "CLM-029",
+  "category": "edge",
+  "policy": {
+    "policy_number": "POL-1029",
+    "holder_name": "Marcus Webb",
+    "coverage_limit_usd": 20000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2029",
+    "name": "Marcus Webb"
+  },
+  "prior_claims": [],
+  "documents": [
+    {
+      "doc_id": "CLM-029-D1",
+      "doc_type": "incident_description",
+      "text": "Claimant reports being 'clipped' by another vehicle in a parking lot on 2026-02-22. On-scene inspection by the claimant found no visible damage, but the claim is being filed 'in case something shows up later.' No paint transfer, dents, or scratches were noted at the time of filing."
+    },
+    {
+      "doc_id": "CLM-029-D2",
+      "doc_type": "repair_estimate",
+      "text": "No shop estimate obtained \u2014 claimant states there is nothing visible to estimate a repair for at this time."
+    }
+  ],
+  "reported_damage_usd": 0.0,
+  "ground_truth": {
+    "expected_outcome": "deny",
+    "expected_send_backs_min": 0,
+    "expected_terminal_reason": null,
+    "notes": "Zero-damage claim: no verifiable loss is described or estimated. Nothing to indemnify against as filed."
+  }
+}

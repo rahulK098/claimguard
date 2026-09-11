@@ -1,0 +1,37 @@
+{
+  "claim_id": "CLM-027",
+  "category": "edge",
+  "policy": {
+    "policy_number": "POL-1027",
+    "holder_name": "Patricia Nowak",
+    "coverage_limit_usd": 30000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2027",
+    "name": "Steven Nowak"
+  },
+  "prior_claims": [],
+  "documents": [
+    {
+      "doc_id": "CLM-027-D1",
+      "doc_type": "incident_description",
+      "text": "Single-vehicle collision with a fence on 2026-02-12. The claimant listed on this submission, Steven Nowak, states he is the policyholder's spouse and was driving with permission at the time of the incident. The policy on file lists Patricia Nowak as the sole named holder; no additional listed driver is recorded."
+    },
+    {
+      "doc_id": "CLM-027-D2",
+      "doc_type": "repair_estimate",
+      "text": "Fence damage to the vehicle's front bumper and grille: $3,100."
+    }
+  ],
+  "reported_damage_usd": 3100.0,
+  "ground_truth": {
+    "expected_outcome": "needs_info",
+    "expected_send_backs_min": 0,
+    "expected_terminal_reason": null,
+    "notes": "Conflicting policy data: the claimant filing is not the named policyholder and no additional driver is on record. Coverage under the policy cannot be confirmed from the documents alone."
+  }
+}

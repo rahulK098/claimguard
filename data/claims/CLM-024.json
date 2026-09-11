@@ -1,0 +1,37 @@
+{
+  "claim_id": "CLM-024",
+  "category": "stress",
+  "policy": {
+    "policy_number": "POL-1024",
+    "holder_name": "Kwame Mensah",
+    "coverage_limit_usd": 40000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2024",
+    "name": "Kwame Mensah"
+  },
+  "prior_claims": [],
+  "documents": [
+    {
+      "doc_id": "CLM-024-D1",
+      "doc_type": "adjuster_notes",
+      "text": "Adjuster notes describe reviewing 'the attached six supporting documents' and cross-referencing each against the others, but only one document (this one) is actually attached. The notes reference page numbers, exhibit letters, and a prior claim number that does not appear anywhere else in this claimant's file, suggesting the notes may have been drafted for a different claim and attached to this one in error. The described damage ('extensive, see exhibits') cannot be independently verified from this document alone."
+    },
+    {
+      "doc_id": "CLM-024-D2",
+      "doc_type": "repair_estimate",
+      "text": "Referenced as 'Exhibit C, repair estimate, $24,000' in the adjuster notes above, but no such exhibit is included in this submission."
+    }
+  ],
+  "reported_damage_usd": 24000.0,
+  "ground_truth": {
+    "expected_outcome": "needs_manual_review",
+    "expected_send_backs_min": 2,
+    "expected_terminal_reason": "step_ceiling",
+    "notes": "Deliberately ambiguous/contradictory documents designed to stress the loop guard and step/budget ceilings rather than resolve cleanly."
+  }
+}

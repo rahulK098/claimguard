@@ -1,0 +1,37 @@
+{
+  "claim_id": "CLM-001",
+  "category": "clean",
+  "policy": {
+    "policy_number": "POL-1001",
+    "holder_name": "Maria Alvarez",
+    "coverage_limit_usd": 25000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2001",
+    "name": "Maria Alvarez"
+  },
+  "prior_claims": [],
+  "documents": [
+    {
+      "doc_id": "CLM-001-D1",
+      "doc_type": "incident_description",
+      "text": "Rear-ended at a stoplight on Elm Street on 2026-02-03 around 5:40pm. Bumper cracked and taillight housing broken."
+    },
+    {
+      "doc_id": "CLM-001-D2",
+      "doc_type": "repair_estimate",
+      "text": "Rear bumper cover replacement, taillight assembly, labor: total $2,100."
+    }
+  ],
+  "reported_damage_usd": 2100.0,
+  "ground_truth": {
+    "expected_outcome": "approve",
+    "expected_send_backs_min": 0,
+    "expected_terminal_reason": null,
+    "notes": "Damage within minor benchmark range; no prior claims; policy active and in force."
+  }
+}

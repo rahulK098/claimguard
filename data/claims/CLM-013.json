@@ -1,0 +1,56 @@
+{
+  "claim_id": "CLM-013",
+  "category": "discrepancy",
+  "policy": {
+    "policy_number": "POL-1013",
+    "holder_name": "Tom\u00e1s Vega",
+    "coverage_limit_usd": 20000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2013",
+    "name": "Tom\u00e1s Vega"
+  },
+  "prior_claims": [
+    {
+      "claim_id": "CLM-P001",
+      "filed_date": "2025-11-03",
+      "amount_usd": 4200.0,
+      "status": "approved"
+    },
+    {
+      "claim_id": "CLM-P002",
+      "filed_date": "2025-12-20",
+      "amount_usd": 3800.0,
+      "status": "approved"
+    },
+    {
+      "claim_id": "CLM-P003",
+      "filed_date": "2026-01-15",
+      "amount_usd": 5100.0,
+      "status": "approved"
+    }
+  ],
+  "documents": [
+    {
+      "doc_id": "CLM-013-D1",
+      "doc_type": "incident_description",
+      "text": "Backed into a light pole in a parking lot on 2026-02-11; rear bumper cracked."
+    },
+    {
+      "doc_id": "CLM-013-D2",
+      "doc_type": "repair_estimate",
+      "text": "Rear bumper cover and sensor replacement: $4,500."
+    }
+  ],
+  "reported_damage_usd": 4500.0,
+  "ground_truth": {
+    "expected_outcome": "approve",
+    "expected_send_backs_min": 1,
+    "expected_terminal_reason": null,
+    "notes": "Three approved prior claims within the last 90 days \u2014 unusually high claim frequency for this policy warrants a second look before approval."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "claim_id": "CLM-023",
+  "category": "stress",
+  "policy": {
+    "policy_number": "POL-1023",
+    "holder_name": "Ingrid Larsen",
+    "coverage_limit_usd": 28000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2023",
+    "name": "Ingrid Larsen"
+  },
+  "prior_claims": [],
+  "documents": [
+    {
+      "doc_id": "CLM-023-D1",
+      "doc_type": "adjuster_notes",
+      "text": "Extremely detailed 1,200-word narrative covering the claimant's full driving history for the day, weather conditions at three different points along the route, a description of an unrelated near-miss earlier in the trip, commentary on road construction two miles from the actual incident site, and finally, in the last two sentences, a brief and vague mention that 'at some point during all of this, contact was made with another vehicle, resulting in some damage, though the exact moment is hard to pin down given everything else going on.' No incident time, exact location, or other-party information is given anywhere in the document."
+    },
+    {
+      "doc_id": "CLM-023-D2",
+      "doc_type": "repair_estimate",
+      "text": "Bodywork, unspecified panel(s): $8,200. No itemization provided."
+    }
+  ],
+  "reported_damage_usd": 8200.0,
+  "ground_truth": {
+    "expected_outcome": "needs_manual_review",
+    "expected_send_backs_min": 2,
+    "expected_terminal_reason": "step_ceiling",
+    "notes": "Deliberately ambiguous/contradictory documents designed to stress the loop guard and step/budget ceilings rather than resolve cleanly."
+  }
+}

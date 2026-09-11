@@ -1,0 +1,37 @@
+{
+  "claim_id": "CLM-002",
+  "category": "clean",
+  "policy": {
+    "policy_number": "POL-1002",
+    "holder_name": "David Chen",
+    "coverage_limit_usd": 30000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2002",
+    "name": "David Chen"
+  },
+  "prior_claims": [],
+  "documents": [
+    {
+      "doc_id": "CLM-002-D1",
+      "doc_type": "incident_description",
+      "text": "Sideswiped by another vehicle while parked outside 214 Maple Ave on 2026-01-18. Driver's side mirror and door panel scratched and dented."
+    },
+    {
+      "doc_id": "CLM-002-D2",
+      "doc_type": "repair_estimate",
+      "text": "Door panel repaint and mirror housing replacement: $1,450."
+    }
+  ],
+  "reported_damage_usd": 1450.0,
+  "ground_truth": {
+    "expected_outcome": "approve",
+    "expected_send_backs_min": 0,
+    "expected_terminal_reason": null,
+    "notes": "Damage within minor benchmark range; no prior claims; policy active and in force."
+  }
+}

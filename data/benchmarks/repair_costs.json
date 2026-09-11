@@ -1,0 +1,6 @@
+{
+  "minor": { "low_usd": 500, "high_usd": 3000 },
+  "moderate": { "low_usd": 3000, "high_usd": 10000 },
+  "major": { "low_usd": 10000, "high_usd": 30000 },
+  "total_loss": { "low_usd": 25000, "high_usd": 60000 }
+}

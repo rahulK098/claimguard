@@ -1,0 +1,37 @@
+{
+  "claim_id": "CLM-003",
+  "category": "clean",
+  "policy": {
+    "policy_number": "POL-1003",
+    "holder_name": "Priya Nair",
+    "coverage_limit_usd": 20000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2003",
+    "name": "Priya Nair"
+  },
+  "prior_claims": [],
+  "documents": [
+    {
+      "doc_id": "CLM-003-D1",
+      "doc_type": "incident_description",
+      "text": "Collided with a shopping cart corral in a parking lot on 2026-03-11, causing front-right fender and headlight damage."
+    },
+    {
+      "doc_id": "CLM-003-D2",
+      "doc_type": "repair_estimate",
+      "text": "Fender replacement, headlight assembly, alignment check: $6,200."
+    }
+  ],
+  "reported_damage_usd": 6200.0,
+  "ground_truth": {
+    "expected_outcome": "approve",
+    "expected_send_backs_min": 0,
+    "expected_terminal_reason": null,
+    "notes": "Damage within moderate benchmark range; no prior claims; policy active and in force."
+  }
+}

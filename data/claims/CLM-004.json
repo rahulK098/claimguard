@@ -1,0 +1,37 @@
+{
+  "claim_id": "CLM-004",
+  "category": "clean",
+  "policy": {
+    "policy_number": "POL-1004",
+    "holder_name": "James O'Neill",
+    "coverage_limit_usd": 35000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2004",
+    "name": "James O'Neill"
+  },
+  "prior_claims": [],
+  "documents": [
+    {
+      "doc_id": "CLM-004-D1",
+      "doc_type": "incident_description",
+      "text": "Struck a guardrail while avoiding a deer on Route 9 on 2026-02-27. Front bumper, hood, and right quarter panel damaged."
+    },
+    {
+      "doc_id": "CLM-004-D2",
+      "doc_type": "repair_estimate",
+      "text": "Bumper, hood, and quarter panel repair with paint match: $7,800."
+    }
+  ],
+  "reported_damage_usd": 7800.0,
+  "ground_truth": {
+    "expected_outcome": "approve",
+    "expected_send_backs_min": 0,
+    "expected_terminal_reason": null,
+    "notes": "Damage within moderate benchmark range; no prior claims; policy active and in force."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "claim_id": "CLM-008",
+  "category": "clean",
+  "policy": {
+    "policy_number": "POL-1008",
+    "holder_name": "Sofia Petrova",
+    "coverage_limit_usd": 15000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2008",
+    "name": "Sofia Petrova"
+  },
+  "prior_claims": [],
+  "documents": [
+    {
+      "doc_id": "CLM-008-D1",
+      "doc_type": "incident_description",
+      "text": "Minor parking-lot contact on 2026-01-09; small dent and scuff on the rear quarter panel, no other visible damage."
+    },
+    {
+      "doc_id": "CLM-008-D2",
+      "doc_type": "repair_estimate",
+      "text": "Paintless dent repair and touch-up paint: $980."
+    }
+  ],
+  "reported_damage_usd": 980.0,
+  "ground_truth": {
+    "expected_outcome": "approve",
+    "expected_send_backs_min": 0,
+    "expected_terminal_reason": null,
+    "notes": "Damage within minor benchmark range; no prior claims; policy active and in force."
+  }
+}

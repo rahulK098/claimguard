@@ -1,0 +1,44 @@
+{
+  "claim_id": "CLM-019",
+  "category": "discrepancy",
+  "policy": {
+    "policy_number": "POL-1019",
+    "holder_name": "Ahmed Farouk",
+    "coverage_limit_usd": 32000.0,
+    "deductible_usd": 500.0,
+    "active": true,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31"
+  },
+  "claimant": {
+    "claimant_id": "CLT-2019",
+    "name": "Ahmed Farouk"
+  },
+  "prior_claims": [
+    {
+      "claim_id": "CLM-P005",
+      "filed_date": "2026-01-10",
+      "amount_usd": 9800.0,
+      "status": "open"
+    }
+  ],
+  "documents": [
+    {
+      "doc_id": "CLM-019-D1",
+      "doc_type": "incident_description",
+      "text": "Rear-ended while stopped in traffic on 2026-02-04; rear bumper and trunk lid dented."
+    },
+    {
+      "doc_id": "CLM-019-D2",
+      "doc_type": "repair_estimate",
+      "text": "Rear bumper and trunk lid replacement: $10,500."
+    }
+  ],
+  "reported_damage_usd": 10500.0,
+  "ground_truth": {
+    "expected_outcome": "needs_info",
+    "expected_send_backs_min": 1,
+    "expected_terminal_reason": null,
+    "notes": "An earlier claim from three weeks prior is still open (not yet resolved) \u2014 investigating a new claim before the prior one closes risks double-counting the same damage."
+  }
+}
