@@ -1,0 +1,79 @@
+name: casefile
+
+services:
+  jaeger:
+    image: cr.jaegertracing.io/jaegertracing/jaeger:2.20.0
+    ports:
+      - "16686:16686" # UI
+      - "4318:4318" # OTLP/HTTP
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:16686"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  claims-system:
+    build: .
+    image: casefile:latest
+    command:
+      [
+        "uvicorn",
+        "claims_system.app:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8001",
+      ]
+    ports:
+      - "8001:8001"
+    env_file: .env
+    environment:
+      OTEL_SERVICE_NAME: casefile-claims-system
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+    volumes:
+      - casefile-data:/data
+    depends_on:
+      jaeger:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request as u; u.urlopen('http://localhost:8001/healthz')\""]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: .
+    image: casefile:latest
+    command:
+      [
+        "uvicorn",
+        "casefile.api.app:create_app",
+        "--factory",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+      ]
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      CASEFILE_CLAIMS_SYSTEM_URL: http://claims-system:8001
+      CASEFILE_DB_PATH: /data/casefile.db
+      OTEL_SERVICE_NAME: casefile-api
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+    volumes:
+      - casefile-data:/data
+    depends_on:
+      jaeger:
+        condition: service_healthy
+      claims-system:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request as u; u.urlopen('http://localhost:8000/healthz')\""]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  casefile-data:

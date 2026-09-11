@@ -1,0 +1,29 @@
+# Local tooling (claude-flow scaffolding) — not part of the project
+.claude/
+
+# Secrets
+.env
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+
+# SQLite state (runtime data, not source)
+*.db
+*.db-wal
+*.db-shm
+data/runtime/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
