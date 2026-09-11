@@ -3,6 +3,7 @@
 
 # Docs kept local only, not committed
 docs/
+plan.md
 
 # Secrets
 .env
