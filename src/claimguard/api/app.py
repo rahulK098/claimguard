@@ -2,15 +2,15 @@
 
 from fastapi import FastAPI
 
-from casefile import __version__
-from casefile.config import Settings, get_settings
+from claimguard import __version__
+from claimguard.config import Settings, get_settings
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or get_settings()
 
     app = FastAPI(
-        title="Casefile Orchestrator",
+        title="ClaimGuard Orchestrator",
         version=__version__,
         description=(
             "Supervised multi-agent claims triage. Bounded by code-enforced ceilings, "
@@ -21,6 +21,6 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.get("/healthz", tags=["ops"])
     def healthz() -> dict[str, str]:
-        return {"status": "ok", "service": "casefile-api", "version": __version__}
+        return {"status": "ok", "service": "claimguard-api", "version": __version__}
 
     return app

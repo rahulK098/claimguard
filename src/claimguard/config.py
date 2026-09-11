@@ -2,7 +2,7 @@
 
 Every ceiling that bounds a run lives here so it is visible in one place and
 can be overridden per environment. Nothing in this file is read by an LLM;
-the guards in ``casefile.graph.guards`` consume these values directly.
+the guards in ``claimguard.graph.guards`` consume these values directly.
 """
 
 from functools import lru_cache
@@ -14,7 +14,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_prefix="CASEFILE_", env_file=".env", env_file_encoding="utf-8", extra="ignore"
+        env_prefix="CLAIMGUARD_", env_file=".env", env_file_encoding="utf-8", extra="ignore"
     )
 
     # --- LLM -------------------------------------------------------------
@@ -37,7 +37,7 @@ class Settings(BaseSettings):
     )
 
     # --- Storage ---------------------------------------------------------
-    db_path: Path = Field(default=Path("data/runtime/casefile.db"))
+    db_path: Path = Field(default=Path("data/runtime/claimguard.db"))
     fixtures_dir: Path = Field(default=Path("data/claims"))
 
     # --- Integrations ----------------------------------------------------
@@ -51,7 +51,7 @@ class Settings(BaseSettings):
     otel_exporter_otlp_endpoint: str | None = Field(
         default=None, alias="OTEL_EXPORTER_OTLP_ENDPOINT"
     )
-    otel_service_name: str = Field(default="casefile-api", alias="OTEL_SERVICE_NAME")
+    otel_service_name: str = Field(default="claimguard-api", alias="OTEL_SERVICE_NAME")
 
 
 @lru_cache

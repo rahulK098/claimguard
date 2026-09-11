@@ -1,10 +1,10 @@
-# Casefile
+# ClaimGuard
 
 > A bounded, observable, replayable multi-agent claims triage system — that never pays out without a human.
 
 **Status:** Phase 0 (bootstrap) — see [docs/implementation-plan.md](docs/implementation-plan.md).
 
-Casefile is a supervised multi-agent graph that triages synthetic auto-insurance claims. The interesting part is not the agents; it is the control plane around them:
+ClaimGuard is a supervised multi-agent graph that triages synthetic auto-insurance claims. The interesting part is not the agents; it is the control plane around them:
 
 - **Bounded** — a per-claim budget ceiling, step ceiling and loop guard are enforced in code, not in a prompt.
 - **Observable** — every node transition, LLM call and tool call is a span in Jaeger and a row in a step log.

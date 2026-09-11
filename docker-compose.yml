@@ -1,4 +1,4 @@
-name: casefile
+name: claimguard
 
 services:
   jaeger:
@@ -14,7 +14,7 @@ services:
 
   claims-system:
     build: .
-    image: casefile:latest
+    image: claimguard:latest
     command:
       [
         "uvicorn",
@@ -28,10 +28,10 @@ services:
       - "8001:8001"
     env_file: .env
     environment:
-      OTEL_SERVICE_NAME: casefile-claims-system
+      OTEL_SERVICE_NAME: claimguard-claims-system
       OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
     volumes:
-      - casefile-data:/data
+      - claimguard-data:/data
     depends_on:
       jaeger:
         condition: service_healthy
@@ -43,11 +43,11 @@ services:
 
   api:
     build: .
-    image: casefile:latest
+    image: claimguard:latest
     command:
       [
         "uvicorn",
-        "casefile.api.app:create_app",
+        "claimguard.api.app:create_app",
         "--factory",
         "--host",
         "0.0.0.0",
@@ -58,12 +58,12 @@ services:
       - "8000:8000"
     env_file: .env
     environment:
-      CASEFILE_CLAIMS_SYSTEM_URL: http://claims-system:8001
-      CASEFILE_DB_PATH: /data/casefile.db
-      OTEL_SERVICE_NAME: casefile-api
+      CLAIMGUARD_CLAIMS_SYSTEM_URL: http://claims-system:8001
+      CLAIMGUARD_DB_PATH: /data/claimguard.db
+      OTEL_SERVICE_NAME: claimguard-api
       OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
     volumes:
-      - casefile-data:/data
+      - claimguard-data:/data
     depends_on:
       jaeger:
         condition: service_healthy
@@ -76,4 +76,4 @@ services:
       retries: 5
 
 volumes:
-  casefile-data:
+  claimguard-data:

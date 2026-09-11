@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.7
 #
 # Single image for both services. docker-compose selects the entrypoint:
-#   api            -> uvicorn casefile.api.app:create_app --factory
+#   api            -> uvicorn claimguard.api.app:create_app --factory
 #   claims-system  -> uvicorn claims_system.app:app
 #
 # Build is two-stage so the runtime image has no uv, no build tools and no
@@ -47,4 +47,4 @@ VOLUME ["/data"]
 
 # Default to the orchestrator; compose overrides for claims-system.
 EXPOSE 8000
-CMD ["uvicorn", "casefile.api.app:create_app", "--factory", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "claimguard.api.app:create_app", "--factory", "--host", "0.0.0.0", "--port", "8000"]
