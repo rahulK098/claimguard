@@ -149,6 +149,10 @@ class LLMFailureKind(StrEnum):
     MAX_TOKENS = "max_tokens"
     REFUSAL = "refusal"
     SCHEMA_VALIDATION = "schema_validation"
+    PROVIDER_UNAVAILABLE = "provider_unavailable"
+    """Every provider in the fallback chain failed (network errors, non-2xx
+    responses, or every attempt's output failed schema validation) --
+    see llm.fallback.AllProvidersExhaustedError."""
 
 
 class LLMFailure(BaseModel):

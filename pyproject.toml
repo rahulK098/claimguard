@@ -28,7 +28,6 @@ dependencies = [
 dev = [
     "pytest>=8.2",
     "pytest-asyncio>=0.23",
-    "respx>=0.21",
     "ruff>=0.5",
     "mypy>=1.10",
 ]
@@ -50,7 +49,6 @@ default-groups = ["dev"]
 dev = [
     "pytest>=8.2",
     "pytest-asyncio>=0.23",
-    "respx>=0.21",
     "ruff>=0.5",
     "mypy>=1.10",
 ]
@@ -59,7 +57,7 @@ dev = [
 testpaths = ["tests"]
 asyncio_mode = "auto"
 markers = [
-    "live: hits the real Anthropic API (skipped unless ANTHROPIC_API_KEY is set)",
+    "live: hits a real LLM provider API (skipped unless at least one provider has credentials configured)",
 ]
 filterwarnings = ["error::DeprecationWarning:claimguard", "error::DeprecationWarning:claims_system"]
 
@@ -70,7 +68,15 @@ src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
-ignore = ["RUF012"]
+ignore = [
+    "RUF012",
+    # Keep classic `TypeVar` + `Generic[T]` everywhere instead of PEP 695's
+    # `class Foo[T]` syntax: TypeVar `T` is shared across llm/client.py,
+    # llm/json_extraction.py, llm/fallback.py, llm/recording.py and llm/fake.py,
+    # and Protocol classes don't mix well with per-declaration type params here.
+    "UP046",
+    "UP047",
+]
 
 [tool.mypy]
 python_version = "3.12"
