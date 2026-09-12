@@ -28,6 +28,7 @@ services:
       - "8001:8001"
     env_file: .env
     environment:
+      CLAIMS_SYSTEM_DB_PATH: /data/claims_system.db
       OTEL_SERVICE_NAME: claimguard-claims-system
       OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
     volumes:
