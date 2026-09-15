@@ -47,6 +47,9 @@ All notable changes to this project are documented here, following [Keep a Chang
 - 73 new tests (157 total, 1 skipped without live credentials): JSON extraction, provider settings, the fake client, the SQLite call store, recording/replay, the fallback chain's wiring logic (`build_default_chain` against many credential combinations), and every provider adapter against `httpx.MockTransport` (native-structured-output success, degrade-on-error fallback, unreachable-provider and malformed-response failure paths, Azure's key rotation). Plus one `@pytest.mark.live` smoke test against whatever provider is actually configured, skipped cleanly otherwise.
 - `docs/adr/0006-record-replay-llm-io.md`, `docs/adr/0011-multi-provider-llm.md`, `docs/testing.md` (first full draft).
 
+**Branding:**
+- `assets/logo.png` — the project logo, and displayed at the top of `README.md`.
+
 ### Changed
 - Project renamed **Casefile → ClaimGuard** across the codebase: the `casefile` package is now `claimguard` (`src/claimguard`), the `CASEFILE_*` env var prefix is now `CLAIMGUARD_*`, and every doc, Docker asset, and test reference was updated to match. The mock claims-system service (`claims-system` / `claims_system`) is unaffected — that name describes the insurer's system of record, not the project.
 - LLM calls moved from Anthropic-only (originally planned) to multi-provider with automatic fallback, per operator preference — see ADR-0011. `docs/adr/0003-typed-handoffs.md` and `docs/implementation-plan.md` both carry forward-pointers to ADR-0011 rather than being rewritten, since the domain-layer decision in ADR-0003 didn't change, only the wire layer.
